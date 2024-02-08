@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang=”en”>
+ <head>
+ <meta charset=”utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
+</head>
+</head>
+<body>
+<navclass="navbar navbar-default" role="navigation">  <div class="navbar-header">   <a class="navbar-brand" href="#">TutorialsPoint</a>  </div>  <div>   <form class="navbar-form navbar-left" role="search">    <div class="form-group">     <input type="text" class="form-control" placeholder="Search">    </div>    <button type="submit" class="btn btn-default">Submit</button>  
+</form>   
+<p class="navbar-text navbar-right">Signed in as     <a href="#" class="navbar-link">Thomas</a></p>
+</div> </nav>
+<ul class="nav nav-pills">  <li class="active"><a href="#">Home
+<span class="badge pull-right">42</span>
+</a></li>  <li><a href="#">SVN</a></li>  <li><a href="#">iOS
+<span class="badge pull-right">2</span>
+</a></li>  <li><a href="#">VB.Net</a></li>  <li><a href="#">Java</a></li>  <li><a href="#">PHP</a></li> </ul>
+
+<ol class="breadcrumb">  <li><a href="#">Home</a></li>  <li><a href="#">2013</a></li>  <li class="active">November</li> </ol>
+<div class="col-md-5 col-md-offset-3">
+    <h3>Simple My Wish List Application Using CRUD</h3>
+</div>
+<div class="col-md-5 col-md-offset-3">
+    <a href="{% url 'CreateWish' %}" class="btn btn-primary">Add New</a>
+
+
+</div><br>
+<div class="container">  <div class="jumbotron">   <h1>Welcome to landing page!</h1>   <p>This is an example for jumbotron.</p>   <p><a class="btn btn-primary btn-lg" role="button">    Learn more</a>   </p>  </div> </div>
+<div class="col-sm-6 col-md-3">  <a href="#" class="thumbnail">   <img src="{% static 'img/kit.jpg' %}"   alt="Generic placeholder thumbnail">  </a>  </div> 
+<div class="col-md-5 col-md-offset-3">
+    <table class="table table-hover" border="1">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Website</th>
+      <th scope="col">Passwords</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for wish in wishes %}
+  <tr>
+      <td>{{ wish.id }}</td>
+      <td><a href="{% url 'UpdateWish' wish.id %}">{{ wish.website }}</a></td>
+      <td>{{ wish.password }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+ <script src="{% static 'js/bootstrap.min.js' %}" ></script>
+
+</body>
+</html>
